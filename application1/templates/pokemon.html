@@ -1,0 +1,12 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>poke</title>
+</head>
+<body>
+    <h1>{{ poke_name }}</h1>
+    <img src="{% static 'images/' %}{{poke_to_view}}" style="width: 100%;" alt="Image of {{ poke_name }} pokemon" />
+</body>
+</html>
