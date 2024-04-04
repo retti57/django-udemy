@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>HOMEPAGE</h1>
+    <p>TotalBooks:  {{num_books}}</p>
+    <p>Num Available:  {{num_instances_avail}}</p>
+    {% if user.is_authenticated %}
+        <p>You are logged in</p>
+        <p>Welcome: {{user.get_username}} !</p>
+    <form method="post" action="{% url 'logout' %}?next={{request.path}}">
+        {% csrf_token %}
+        <button type="submit">Log Out</button>
+    </form>
+    {% else %}
+        <p> You are not logged in.</p>
+        <a href="{% url 'login' %}?next={{request.path}}">Login Here</a>
+    {% endif %}
+</body>
+</html>
